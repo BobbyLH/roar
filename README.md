@@ -14,7 +14,7 @@ Several options to get up and running:
 In the browser:
 
 ```html
-<script src='pathTo/dist/audio.js' ></script>
+<script src='pathTo/dist/roar.js' ></script>
 <script>
     const Roar = window.Roar.default
     var sound = new Roar({
