@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:BobbyLH/roar.git"
+    "url": "git+ssh://git@github.com/BobbyLH/roar.git"
   },
   "author": "Bobby.Li",
   "license": "MIT",
@@ -80,5 +80,12 @@
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.3"
+  },
+  "bugs": {
+    "url": "https://github.com/BobbyLH/roar/issues"
+  },
+  "homepage": "https://github.com/BobbyLH/roar#readme",
+  "directories": {
+    "test": "test"
   }
 }
