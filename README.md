@@ -8,8 +8,8 @@
 Several options to get up and running:
 
 * Clone the repo: `git clone https://github.com/BobbyLH/roar`
-* Install with [npm](https://www.npmjs.com/package/roar): `npm install roar`
-* Install with [Yarn](https://yarnpkg.com/en/package/roar): `yarn add roar`
+* Install with [npm](https://www.npmjs.com/package/roarjs): `npm install roar`
+* Install with [Yarn](https://yarnpkg.com/en/package/roarjs): `yarn add roar`
 
 In the browser:
 
