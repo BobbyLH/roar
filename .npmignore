@@ -1,3 +1,6 @@
+karma.config.json
+tsconfig.json
+tslint.json
 .browserslistrc
 babel.config.js
 .gitignore
