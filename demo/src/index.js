@@ -1,7 +1,6 @@
-import EaseAudio from '../../js/src/index'
-// import EaseAudio from '../../dist/ease-audio'
+import Roar from '../../js/src/index'
 
-const audio = new EaseAudio()
+const audio = new Roar()
 const rootDom = document.getElementById('app')
 const initBtn = document.createElement('button')
 const loadBtn = document.createElement('button')

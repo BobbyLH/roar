@@ -173,7 +173,7 @@ interface IAudio {
   playlist: Fplaylist;
 }
 
-declare class EaseAudio<Iconfig> {
+declare class Roar<Iconfig> {
   constructor(config: Iconfig | void)
   public init: Finit;
   public play: FHandleAudio;
@@ -249,7 +249,7 @@ export {
   IblockEvent,
   IsetPlaylist,
   IAudio,
-  EaseAudio
+  Roar
 }
 
-export default EaseAudio
+export default Roar

@@ -11,7 +11,7 @@ async function autoGit () {
   let gitStatus = null
   try {
     gitStatus = await git.add('../*')
-    gitStatus = await git.commit(`[Ease Audio]: ${message}`)
+    gitStatus = await git.commit(`[Roar]: ${message}`)
     gitStatus = await git.push('origin', branch)
     console.log(`[git - status]: ${gitStatus}`)
   } catch (e) {

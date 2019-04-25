@@ -31,7 +31,7 @@ import {
   IreturnParams,
   IblockEvent,
   IsetPlaylist
-} from './ease-audio.d'
+} from './index.d'
 
 enum playStateSet {
   'loading',
@@ -572,7 +572,7 @@ export class AudioH5 {
   public once (event: TEvent | TonEvent, cb: TentireEventCallback): boolean {
     if (this._checkInit() && this._checkType(event, 'string', true) && this._checkType(cb, 'function', true)) {
       const queueName = event.indexOf('on') === 0 ? event : `on${event}`
-      const funcName = `EASE_AUDIO_${queueName.toUpperCase()}_ONCE_CALLBACK`
+      const funcName = `ROAR_${queueName.toUpperCase()}_ONCE_CALLBACK`
       const once: TentireEventCallback = (e: TeventParameter) => {
         cb && cb(<any>e)
         const result = this._offEvent(queueName as TonEvent, once, funcName)
@@ -1103,7 +1103,7 @@ export class AudioH5 {
       if (v.indexOf('on') === 0) {
         const cb = config[<TonEvent>v]
         if (cb && this._checkType(cb, 'function', true)) {
-          const funcName = `EASE_AUDIO_${v.toUpperCase()}_INITIAL_CALLBACK`
+          const funcName = `ROAR_${v.toUpperCase()}_INITIAL_CALLBACK`
           const result = this._onEvent(<TonEvent>v, <TentireEventCallback>cb, funcName)
           if (!result) this._logErr(`The [${v}] event initial bind failed`)
         }
@@ -1491,7 +1491,7 @@ export class AudioH5 {
    */
   protected _logOptimize (msg: string | Object, method: 'log' | 'info' | 'warn' | 'error'): void {
     const logger: Function = console[method] || console.log
-    const prefix: string = `[EASE_AUDIO_H5 ${method.toUpperCase()}]:`
+    const prefix: string = `[ROAR ${method.toUpperCase()}]:`
 
     if ((this._checkType(msg, 'object') || this._checkType(msg, 'array')) && console.table) {
       logger(prefix)

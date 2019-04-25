@@ -1,5 +1,5 @@
 # Description
-[ease-audio.js](https://github.com/BobbyLH/ease-audio) is an audio library base on **HTML5 Audio**.
+[roar.js](https://github.com/BobbyLH/roar) is an audio library base on **HTML5 Audio**.
 
 
 
@@ -7,17 +7,17 @@
 
 Several options to get up and running:
 
-* Clone the repo: `git clone https://github.com/BobbyLH/ease-audio`
-* Install with [npm](https://www.npmjs.com/package/ease-audio): `npm install ease-audio`
-* Install with [Yarn](https://yarnpkg.com/en/package/ease-audio): `yarn add ease-audio`
+* Clone the repo: `git clone https://github.com/BobbyLH/roar`
+* Install with [npm](https://www.npmjs.com/package/roar): `npm install roar`
+* Install with [Yarn](https://yarnpkg.com/en/package/roar): `yarn add roar`
 
 In the browser:
 
 ```html
 <script src='pathTo/dist/audio.js' ></script>
 <script>
-    const EaseAudio = window.EaseAudio.default
-    var sound = new EaseAudio({
+    const Roar = window.Roar.default
+    var sound = new Roar({
       playlist: ['sound.mp3']
     });
 </script>
@@ -29,7 +29,7 @@ In the browser:
 
 ### Most basic:
 ```javascript
-var sound = new EaseAudio({
+var sound = new Roar({
   playlist: ['sound.mp3', 'sound2.mp3'],
   autocut: true
 });
@@ -39,7 +39,7 @@ sound.play();
 
 ### More options:
 ```javascript
-var sound = new EaseAudio({
+var sound = new Roar({
   playlist: [
     {src: 'sound1.mp3', tag: 'your tag'}, 
     {src: 'sound2.mp3', tag: 'your tag'}
@@ -85,7 +85,7 @@ var sound = new EaseAudio({
 
 ### Listen for events:
 ```javascript
-var sound = new EaseAudio({
+var sound = new Roar({
   playlist: ['sound.mp3']
 });
 
@@ -103,14 +103,14 @@ sound.on('end', function(){
 
 ### ES6:
 ```javascript
-import EaseAudio from 'ease-audio';
+import Roar from 'roar';
 
-// or const EaseAudio = require('ease-audio').default
+// or const Roar = require('Roar').default
 
-// or const { EaseAudio } = require('ease-audio')
+// or const { Roar } = require('Roar')
 
-// Setup the new EaseAudio.
-const sound = new EaseAudio({
+// Setup the new Roar.
+const sound = new Roar({
   playlist: ['sound.mp3']
 });
 
@@ -135,7 +135,7 @@ The play list for list model, the src(`The sources to the track to be loaded for
 #### initIndex `Number` `0`
 The index in playlist which will be picked to initialize
 #### autocut `Boolean` or `Function(currentId, nextId)`
-Set or return(`Function`) to `true` the EaseAudio going to play next track(according to playModel) when the current has have finished.
+Set or return(`Function`) to `true` the Roar going to play next track(according to playModel) when the current has have finished.
 #### playModel `String` `list-once`
 This property defines the play model that when `cut` or `end auto cut` sound will be comply. Valid levels include(If set the `loop` to `true` without set playModel property, then the play model will be `single-once`):<br>
 - `list-once`
@@ -190,7 +190,7 @@ Fires when the sound is unable to play. The first parameter is the error message
 #### debug `Boolean` `false`
 Set to `true` will log the debug information.
 #### logLevel `string` `error`
-This property defines the level of messages that the EaseAudio will log. Valid levels include:<br>
+This property defines the level of messages that the Roar will log. Valid levels include:<br>
 - `detail`
 - `info`
 - `warn`
@@ -200,7 +200,7 @@ This property defines the level of messages that the EaseAudio will log. Valid l
 
 ### Methods
 #### init(config)
-If without config when new construction the EaseAudio, you still can call this method with some configurations to construction.
+If without config when new construction the Roar, you still can call this method with some configurations to construction.
 
 #### play()
 Begin playback of sound.
@@ -242,7 +242,7 @@ If without arguments then return boolean which represent whether or not muted
 Stops playback of sound, resetting `seek` to `0`.
 
 #### unload()
-Unload and destroy the EaseAudio object. This will immediately stop and remove it from the cache.
+Unload and destroy the Roar object. This will immediately stop and remove it from the cache.
 
 #### on(event, function)
 Listen for events. Multiple events can be added by calling this multiple times.

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  title: 'Ease Audio',
+  title: 'Roar Audio',
   path: path.resolve(__dirname),
   template: path.join(__dirname, 'src/index.html'),
   filename: 'index.html'

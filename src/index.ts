@@ -1,4 +1,4 @@
-import { EaseAudio } from './Audio'
+import { Roar } from './Audio'
 
-export { EaseAudio } from './Audio'
-export default EaseAudio
+export { Roar } from './Audio'
+export default Roar

@@ -13,9 +13,9 @@ import {
   Fplaylist,
   FHandleAudio,
   IAudio
-} from './ease-audio.d'
+} from './index.d'
 
-export class EaseAudio {
+export class Roar {
   public init: Finit | FAnyMethod;
   public play: FHandleAudio | FAnyMethod;
   public pause: FHandleAudio | FAnyMethod;
@@ -132,7 +132,7 @@ export class EaseAudio {
         }
       }
     } catch (err) {
-      console.error('[EASE_AUDIO CREATE AUDIO ERROR]:', err)
+      console.error('[ROAR CREATE AUDIO ERROR]:', err)
     }
 
     return audio
@@ -145,7 +145,7 @@ export class EaseAudio {
  * @return {void}
  */
 function initFunc (): void {
-  return console.error('[EASE_AUDIO ERROR]: Initialize failed')
+  return console.error('[ROAR ERROR]: Initialize failed')
 }
 
-export default EaseAudio
+export default Roar

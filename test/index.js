@@ -1,10 +1,10 @@
-import EaseAudio from '../dist/ease-audio'
+import Roar from '../dist/roar'
 import 'mocha'
 import { expect } from 'chai'
 
 let reserveList
-const audio = new EaseAudio()
-describe("EaseAudio's test module", function () {
+const audio = new Roar()
+describe("Roar's test module", function () {
   it("new Audio() - audio's property test", function () {
     expect(audio).to.be.an('object')
     expect(audio).to.have.property('audio').to.be.an('object')

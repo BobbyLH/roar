@@ -6,9 +6,9 @@ module.exports = [{
     index: './js/src/index.js'
   },
   output: {
-    filename: 'ease-audio.min.js',
+    filename: 'roar.min.js',
     path: path.resolve(__dirname, '../dist'),
-    library: 'EaseAudio',
+    library: 'Roar',
     libraryTarget: 'umd'
   },
   module: {

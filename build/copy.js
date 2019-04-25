@@ -37,4 +37,4 @@ function mkdir (dist, popDist = []) {
   return true
 }
 
-copyFile(path.join(__dirname, '../src/ease-audio.d.ts'), path.join(__dirname, '../dist/ease-audio.d.ts'))
+copyFile(path.join(__dirname, '../src/index.d.ts'), path.join(__dirname, '../dist/roar.d.ts'))

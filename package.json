@@ -1,18 +1,17 @@
 {
-  "name": "ease-audio",
-  "version": "0.2.0-beta.4",
+  "name": "roar",
+  "version": "0.1.0",
   "description": "The Audio Player Project",
   "keywords": [
-    "ease",
-    "ease-audio",
-    "ease-audio.js",
+    "roar",
+    "roar.js",
     "audio",
     "sound",
     "html5",
     "html5 audio"
   ],
-  "main": "dist/ease-audio.js",
-  "types": "dist/ease-audio.d.ts",
+  "main": "dist/roar.js",
+  "types": "dist/roar.d.ts",
   "scripts": {
     "dev": "npm run build_tsc && webpack-dashboard -p 3300 -- node demo/server.js",
     "test": "npm run build_src && karma start",
@@ -32,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:BobbyLH/ease-audio.git"
+    "url": "git@github.com:BobbyLH/roar.git"
   },
   "author": "Bobby.Li",
   "license": "MIT",

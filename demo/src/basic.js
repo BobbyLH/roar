@@ -1,6 +1,6 @@
-const EaseAudio = window.EaseAudio.default
+const Roar = window.Roar.default
 
-var audio = new EaseAudio()
+var audio = new Roar()
 
 function init () {
   const config = {

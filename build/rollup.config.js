@@ -5,12 +5,12 @@ import babel from 'rollup-plugin-babel'
 module.exports = {
   input: 'js/src/index.js',
   output: {
-    file: 'dist/ease-audio.js',
+    file: 'dist/roar.js',
     format: 'umd',
-    name: 'EaseAudio',
+    name: 'Roar',
     exports: 'named',
     compact: true,
-    banner: '/* ease-audio */',
+    banner: '/* roar.js */',
     footer: '/* Copyright (c) 2018-2019 Bobby.li \n* MIT License \n*/'
   },
   plugins: [
