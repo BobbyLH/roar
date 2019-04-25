@@ -103,11 +103,11 @@ sound.on('end', function(){
 
 ### ES6:
 ```javascript
-import Roar from 'roar';
+import Roar from 'roarjs';
 
-// or const Roar = require('Roar').default
+// or const Roar = require('roarjs').default
 
-// or const { Roar } = require('Roar')
+// or const { Roar } = require('roarjs')
 
 // Setup the new Roar.
 const sound = new Roar({
