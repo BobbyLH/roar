@@ -874,7 +874,46 @@ var nonIterableSpread = _nonIterableSpread;function _toConsumableArray(arr) {
   return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
 }
 
-var toConsumableArray = _toConsumableArray;// 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+var toConsumableArray = _toConsumableArray;var f$3 = Object.getOwnPropertySymbols;
+
+var _objectGops = {
+	f: f$3
+};// 19.1.2.1 Object.assign(target, source, ...)
+
+
+
+
+
+var $assign = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+var _objectAssign = !$assign || _fails(function () {
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line no-undef
+  var S = Symbol();
+  var K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function (k) { B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+  var T = _toObject(target);
+  var aLen = arguments.length;
+  var index = 1;
+  var getSymbols = _objectGops.f;
+  var isEnum = _objectPie.f;
+  while (aLen > index) {
+    var S = _iobject(arguments[index++]);
+    var keys = getSymbols ? _objectKeys(S).concat(getSymbols(S)) : _objectKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+  } return T;
+} : $assign;// 19.1.3.1 Object.assign(target, source)
+
+
+_export(_export.S + _export.F, 'Object', { assign: _objectAssign });var assign = _core.Object.assign;var assign$1 = assign;// 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
 
 var $getOwnPropertyDescriptor = _objectGopd.f;
 
@@ -944,18 +983,14 @@ var _meta_1 = _meta.KEY;
 var _meta_2 = _meta.NEED;
 var _meta_3 = _meta.fastKey;
 var _meta_4 = _meta.getWeak;
-var _meta_5 = _meta.onFreeze;var f$3 = _wks;
+var _meta_5 = _meta.onFreeze;var f$4 = _wks;
 
 var _wksExt = {
-	f: f$3
+	f: f$4
 };var defineProperty$2 = _objectDp.f;
 var _wksDefine = function (name) {
   var $Symbol = _core.Symbol || (_core.Symbol = {});
   if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty$2($Symbol, name, { value: _wksExt.f(name) });
-};var f$4 = Object.getOwnPropertySymbols;
-
-var _objectGops = {
-	f: f$4
 };// all enumerable object keys, includes symbols
 
 
@@ -1273,42 +1308,7 @@ var objectSpread = _objectSpread;// 19.1.2.2 / 15.2.3.5 Object.create(O [, Prope
 _export(_export.S, 'Object', { create: _objectCreate });var $Object$2 = _core.Object;
 var create = function create(P, D) {
   return $Object$2.create(P, D);
-};var create$1 = create;// 19.1.2.1 Object.assign(target, source, ...)
-
-
-
-
-
-var $assign = Object.assign;
-
-// should work with symbols and should have deterministic property order (V8 bug)
-var _objectAssign = !$assign || _fails(function () {
-  var A = {};
-  var B = {};
-  // eslint-disable-next-line no-undef
-  var S = Symbol();
-  var K = 'abcdefghijklmnopqrst';
-  A[S] = 7;
-  K.split('').forEach(function (k) { B[k] = k; });
-  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
-  var T = _toObject(target);
-  var aLen = arguments.length;
-  var index = 1;
-  var getSymbols = _objectGops.f;
-  var isEnum = _objectPie.f;
-  while (aLen > index) {
-    var S = _iobject(arguments[index++]);
-    var keys = getSymbols ? _objectKeys(S).concat(getSymbols(S)) : _objectKeys(S);
-    var length = keys.length;
-    var j = 0;
-    var key;
-    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
-  } return T;
-} : $assign;// 19.1.3.1 Object.assign(target, source)
-
-
-_export(_export.S + _export.F, 'Object', { assign: _objectAssign });var assign = _core.Object.assign;var assign$1 = assign;var HAS_INSTANCE = _wks('hasInstance');
+};var create$1 = create;var HAS_INSTANCE = _wks('hasInstance');
 var FunctionProto = Function.prototype;
 // 19.2.3.6 Function.prototype[@@hasInstance](V)
 if (!(HAS_INSTANCE in FunctionProto)) _objectDp.f(FunctionProto, HAS_INSTANCE, { value: function (O) {
@@ -2165,19 +2165,15 @@ function () {
             this._abortLoad();
 
             this._commonLock('cutpick', function () {
-              _this3.unload(true);
-
               var src = _this3.playList[_this3.playIndex].src;
 
-              var config = assign$1(_this3.config, {
-                src: src
-              });
+              if (_this3.audioH5 && src) {
+                _this3.audioH5.src = src;
 
-              _this3._createAudio(config);
+                _this3.load();
 
-              _this3._registerEvent(config);
-
-              _this3.play();
+                _this3.play();
+              }
             });
 
             break;
@@ -2548,7 +2544,7 @@ function () {
       if (this.audioH5 && this.audioH5.src !== defaultSrc) {
         this.audioH5.src = defaultSrc;
         this.audioH5.currentTime = 0;
-        this.audioH5.load();
+        this.load();
       }
     }
   }, {
@@ -2770,25 +2766,13 @@ function () {
           return this._commonLock('cutpick', function () {
             var src = _this13.playList[_this13.playIndex].src;
 
-            if (autocut) {
-              if (_this13.audioH5 && src) {
-                _this13.audioH5.src = src;
+            if (_this13.audioH5 && src) {
+              _this13.audioH5.src = src;
 
-                _this13.audioH5.load();
-              }
-            } else {
-              _this13.unload(true);
+              _this13.load();
 
-              var config = assign$1(_this13.config, {
-                src: src
-              });
-
-              _this13._createAudio(config);
-
-              _this13._registerEvent(config);
+              _this13.play();
             }
-
-            return _this13.play();
           });
         }
       }

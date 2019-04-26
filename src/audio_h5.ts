@@ -325,14 +325,12 @@ export class AudioH5 {
           this._abortLoad()
 
           this._commonLock('cutpick', () => {
-            this.unload(true)
-
             const src = (<Tplaylist>this.playList)[(<number>this.playIndex)].src
-            const config = Object.assign(this.config, { src })
-            this._createAudio(config)
-            this._registerEvent(config)
-
-            this.play()
+            if (this.audioH5 && src) {
+              this.audioH5.src = src
+              this.load()
+              this.play()
+            }
           })
 
           break
@@ -757,7 +755,7 @@ export class AudioH5 {
     if (this.audioH5 && this.audioH5.src !== defaultSrc) {
       this.audioH5.src = defaultSrc
       this.audioH5.currentTime = 0
-      this.audioH5.load()
+      this.load()
     }
   }
 
@@ -982,20 +980,11 @@ export class AudioH5 {
 
         return this._commonLock('cutpick', () => {
           const src = (this.playList as Tplaylist)[<TplayIndex>this.playIndex].src
-          if (autocut) {
-            if (this.audioH5 && src) {
-              // resolve the IOS auto play problem
-              this.audioH5.src = src
-              this.audioH5.load()
-            }
-          } else {
-            this.unload(true)
-            const config = Object.assign(this.config, { src })
-            this._createAudio(config)
-            this._registerEvent(config)
+          if (this.audioH5 && src) {
+            this.audioH5.src = src
+            this.load()
+            this.play()
           }
-
-          return this.play()
         })
       }
     }
