@@ -266,7 +266,7 @@ Get/set the play model. This method optionally takes 0 or 1 arguments.
 #### playlist([options])
 Get/set the playlist. This method optionally takes 0 or 1 arguments.
 * **options**: Set the playlist according to the options object which contain {`action`, `playId`, `list`, `params`} .
-* ***action***: `String` Action of setting (`add`, `delete`, `insert`, `replace`, `update`,  `reset`).
+* ***action***: `String` Action of setting (`add`, `delete`, `insert`, `replace`, `update`, `reverse`, `reset`).
 * ***list***: `Array` `optional` Add/insert/replace the list to playlist when the action is `add`, `insert`, `replace`.
 * ***playId***: `Array` `optional` Delete/insert/replace/update a item according to playId.
 * ***params***: `Object` `optional` Update a item  from params according to playId.

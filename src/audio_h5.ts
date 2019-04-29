@@ -932,6 +932,10 @@ export class AudioH5 {
           }
         }
         break
+      case 'reverse':
+        playlist.reverse()
+        this.playList = [...playlist]
+        break
       case 'reset':
         this._resetPlayList()
         break
