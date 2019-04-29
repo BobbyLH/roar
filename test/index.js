@@ -122,8 +122,17 @@ describe("Roar's test module", function () {
     })
     expect(list).to.be.an('array')
     expect(list).to.with.lengthOf(6)
-    expect(list[2]).to.have.property('playId').to.be.equal(1006)
+    expect(list[2]).to.have.property('playId').to.be.equal(1006) // playId will be rebuild
     expect(list[2]).to.have.property('tag').to.be.equal('this is insert item')
+  })
+  it('audio - playlist - reverse', function () {
+    const list = audio.playlist({
+      action: 'reverse'
+    })
+    expect(list).to.be.an('array')
+    expect(list).to.with.lengthOf(6)
+    expect(list[0]).to.have.property('playId').to.be.equal(1004)
+    expect(list[5]).to.have.property('playId').to.be.equal(1000)
   })
   it('audio - playlist - delete', function () {
     const list = audio.playlist({

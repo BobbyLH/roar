@@ -15,7 +15,7 @@
   "types": "dist/roar.d.ts",
   "scripts": {
     "dev": "npm run build_tsc && webpack-dashboard -p 3300 -- node demo/server.js",
-    "test": "npm run build_src && karma start",
+    "test": "npm run build_src && karma start --browsers Chrome",
     "static": "rollup -c build/rollup.config.js --watch",
     "build": "npm run build_branch && npm run build_src && npm run build_test && npm run build_version && npm run build_git",
     "build:beta": "npm run build_branch && npm run build_src && npm run build_test && npm run build_version_beta && npm run build_git",
