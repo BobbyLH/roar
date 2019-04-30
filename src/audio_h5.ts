@@ -559,7 +559,6 @@ export class AudioH5 {
     return false
   }
 
-  /* fire only one time */
   /**
    * fire only one time
    * @param {string} event TEvent
