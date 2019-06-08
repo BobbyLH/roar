@@ -37,6 +37,7 @@ describe("Roar's test module", function () {
       initIndex: 1,
       debug: true,
       logLevel: 'info',
+      onload: e => console.log('onload:', e),
       onplay: e => console.log('onplay:', e),
       onpause: e => console.log('onpause:', e),
       onstop: id => console.log('onstop', id),

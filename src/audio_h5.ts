@@ -1,4 +1,4 @@
-import { addListener, removeListener, getType, isIE } from '../utils/index'
+import { addListener, removeListener, getType, isIE } from '../utils'
 import {
   Iplaylist,
   TplayState,
