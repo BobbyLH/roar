@@ -1,6 +1,6 @@
 #! /bin/bash
 
-name="[FE-SUPERVISOR]"
+name="[ROAR-JS]"
 
 if [ $? -eq 0 ]
 then
