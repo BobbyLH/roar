@@ -1,8 +1,8 @@
-import Roar from '../dist/roar'
+import Roar from '../'
 import 'mocha'
 import { expect } from 'chai'
 
-let reserveList
+let reserveList: any
 const audio = new Roar()
 describe("Roar's test module", function () {
   it("new Audio() - audio's property test", function () {
@@ -33,21 +33,22 @@ describe("Roar's test module", function () {
     expect(audio).to.have.property('networkState').to.be.equal(0)
   })
   it('audio - init', function () {
+    const logLevel: 'info' = 'info'
     const config = {
       initIndex: 1,
       debug: true,
-      logLevel: 'info',
-      onload: e => console.log('onload:', e),
-      onplay: e => console.log('onplay:', e),
-      onpause: e => console.log('onpause:', e),
-      onstop: id => console.log('onstop', id),
-      onpick: id => console.log('onpick', id),
-      oncut: id => console.log('oncut', id),
-      onseeking: e => console.log('onseeking:', e),
-      onprogress: e => console.log('onprogress:', e),
+      logLevel,
+      onload: (e: Event) => console.log('onload:', e),
+      onplay: (e: Event) => console.log('onplay:', e),
+      onpause: (e: Event) => console.log('onpause:', e),
+      onstop: (id: number | string | undefined) => console.log('onstop', id),
+      onpick: (id: number | string | undefined)=> console.log('onpick', id),
+      oncut: (id: number | string | undefined) => console.log('oncut', id),
+      onseeking: (e: Event) => console.log('onseeking:', e),
+      onprogress: (e: Event) => console.log('onprogress:', e),
       playlist: [
         {src: 'http://audio.xmcdn.com/group29/M01/AA/71/wKgJXVrpaoXApbrYABINQqa4hlE219.m4a'},
-        'http://audio.xmcdn.com/group36/M0A/28/2C/wKgJUloyLSPzMzrUAA_CiRLIGrE559.m4a',
+        {src: 'http://audio.xmcdn.com/group36/M0A/28/2C/wKgJUloyLSPzMzrUAA_CiRLIGrE559.m4a'},
         {src: 'http://audio.xmcdn.com/group21/M0B/2E/08/wKgJLVrpYaLCVIMPABFX6j5WjMk013.m4a'}
       ]
     }
@@ -62,8 +63,9 @@ describe("Roar's test module", function () {
     expect(loadRes).to.be.a('number')
   })
   it('audio - on', function () {
+    const errorEvent: any = 'seek'
     const onRes1 = audio.on('play', onPlay)
-    const onRes2 = audio.on('seek', e => console.log('seek'))
+    const onRes2 = audio.on(errorEvent, (e: Event) => console.log('seeking'))
     expect(onRes1).to.be.true
     expect(onRes2).to.be.false
   })
@@ -73,7 +75,7 @@ describe("Roar's test module", function () {
     expect(offRes).to.be.a('boolean')
   })
   it('audio - once', function () {
-    const onceRes = audio.once('pause', function (e) {
+    const onceRes = audio.once('pause', function (e: Event) {
       console.log('onPuase event bind by once', e)
     })
     expect(onceRes).to.be.a('boolean')
@@ -196,12 +198,12 @@ describe("Roar's test module", function () {
     const modelRes1 = audio.model()
     audio.model('list-loop')
     const modelRes2 = audio.model()
-    audio.model('singles-loop') // set faild cause this model is not support
+    audio.model('single-loop') // set faild cause this model is not support
     const modelRes3 = audio.model()
     audio.model('list-once')
     expect(modelRes1).to.be.equal('list-once')
     expect(modelRes2).to.be.equal('list-loop')
-    expect(modelRes3).to.be.equal('list-loop')
+    expect(modelRes3).to.be.equal('single-loop')
   })
   it('audio - play', function () {
     createBtn('play', play)
@@ -289,11 +291,11 @@ describe("Roar's test module", function () {
   })
 })
 
-function onPlay (e) {
+function onPlay (e: Event) {
   console.log('[test module]: bind event by on')
 }
 
-function createBtn (text, cb) {
+function createBtn (text: string, cb: (this: GlobalEventHandlers, ev: MouseEvent) => any) {
   const rootDom = document.body
   const btn = document.createElement('button')
   btn.innerText = text

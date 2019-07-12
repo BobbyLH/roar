@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "10"
+dist: trusty
+sudo: required
+addons:
+  - chrome: stable
+before_install: 
+  - npm i -g codecov
+install:
+  - yarn
+script:
+  - npm run test_headless
+  - codecov
+cache:
+  yarn: true
+  directories:
+    - node_modules
+after_success:
+  - export CODECOV_TOKEN="f0460f7d-b56e-49a5-9e31-8e809e296d96"
+  - bash <(curl -s https://codecov.io/bash) -s coverage/

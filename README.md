@@ -1,4 +1,10 @@
 # Description
+[![NPM downloads](http://img.shields.io/npm/dm/roarjs.svg?style=flat-square)](https://www.npmjs.com/package/roarjs)
+[![npm version](https://badge.fury.io/js/roarjs.svg)](https://badge.fury.io/js/roarjs)
+[![Build Status](https://travis-ci.com/BobbyLH/roarjs.svg?branch=master)](https://travis-ci.com/BobbyLH/roarjs)
+[![codecov](https://codecov.io/gh/BobbyLH/roarjs/branch/master/graph/badge.svg)](https://codecov.io/gh/BobbyLH/roarjs)
+[![install size](https://packagephobia.now.sh/badge?p=roarjs)](https://packagephobia.now.sh/result?p=roarjs)
+[![license](http://img.shields.io/npm/l/roarjs.svg)](https://github.com/BobbyLH/roarjs/blob/master/LICENSE)
 [roar.js](https://github.com/BobbyLH/roar) is an audio library base on **HTML5 Audio**.
 
 
@@ -246,17 +252,17 @@ Unload and destroy the Roar object. This will immediately stop and remove it fro
 
 #### on(event, function)
 Listen for events. Multiple events can be added by calling this multiple times.
-* **event**: `String` Name of event to fire/set (`play`, `pause`, `stop`, `end`, `load`, `unload`, `canplay`, `canplaythrough`, `progress`, `volume`, `seek`, `rate`, `timeupdate`, `loaderror`, `playerror`).
+* **event**: `String` Name of event to fire/set (`play`, `pause`, `stop`, `end`, `load`, `unload`, `canplay`, `canplaythrough`, `progress`, `volume`, `seeking`, `seeked`, `rate`, `timeupdate`, `loaderror`, `playerror`).
 * **function**: `Function` Define function to fire on event.
 
 #### once(event, function)
 Same as `on`, but it removes itself after the callback is fired.
-* **event**: `String` Name of event to fire/set (`play`, `pause`, `stop`, `end`, `load`, `unload`, `canplay`, `canplaythrough`, `progress`, `volume`, `seek`, `rate`, `timeupdate`, `loaderror`, `playerror`).
+* **event**: `String` Name of event to fire/set (`play`, `pause`, `stop`, `end`, `load`, `unload`, `canplay`, `canplaythrough`, `progress`, `volume`, `seeking`, `seeked`, `rate`, `timeupdate`, `loaderror`, `playerror`).
 * **function**: `Function` Define function to fire on event.
 
 #### off(event, [function])
 Remove event listener that you've set. Call without parameters to remove all events.
-* **event**: `String` Name of event (`play`, `pause`, `stop`, `end`, `load`, `unload`, `canplay`, `canplaythrough`, `progress`, `volume`, `seek`, `rate`, `timeupdate`, `loaderror`, `playerror`).
+* **event**: `String` Name of event (`play`, `pause`, `stop`, `end`, `load`, `unload`, `canplay`, `canplaythrough`, `progress`, `volume`, `seeking`, `seeked`, `rate`, `timeupdate`, `loaderror`, `playerror`).
 * **function**: `Function` `optional` The listener to remove. Omit this to remove all events of type.
 
 #### model([model])

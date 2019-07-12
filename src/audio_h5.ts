@@ -1236,7 +1236,7 @@ export class AudioH5 {
       if (uselessEvents[<TAudioEvent | any>k] !== undefined) continue
 
       // bind controller scope for every each event
-      this.eventMethods[<TAudioEventUseful>k] = curry(this.eventMethods[<TAudioEventUseful>k], <TAudioEventUseful>k)
+      this.eventMethods[<TAudioEventUseful>k] = (curry(this.eventMethods[<TAudioEventUseful>k], <TAudioEventUseful>k) as any)
       this._bindEvent(this.eventMethods[<TAudioEventUseful>k], <TAudioEventUseful>k)
     }
 
@@ -1338,7 +1338,7 @@ export class AudioH5 {
   private _commonLock (tag: TlockTags, fn: Function): void {
     if (this.playLocker) {
       const lockTags = (<IlockTags>this.lockTags)[tag]
-      typeof lockTags === 'number' && ((<IlockTags>this.lockTags)[tag] = lockTags + 1)
+      typeof lockTags === 'number' && (((<IlockTags>this.lockTags)[tag] as number) = lockTags + 1)
     }
 
     this._playLockQueue((id => () => {

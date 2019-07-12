@@ -41,7 +41,7 @@ type FEventUnBind = (arg1: TEvent | TonEvent, arg2?: TentireEventCallback) => bo
 type Finit = (arg1: Iconfig) => IreturnParams | void;
 type Fpick = (arg1: TplayId) => IreturnParams | void;
 type Fcut = () => IreturnParams | void;
-type Fmodel = (model?: TplayStateSet) => TplayStateSet | void;
+type Fmodel = (model?: TplayModelStr) => TplayModelStr | void;
 type Fplaylist = (data?: IsetPlaylist) => Tplaylist;
 type FHandleAudio = (arg1?: number | boolean) => TplayId | boolean | void;
 

@@ -11,33 +11,80 @@ module.exports = function (config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['mocha'],
 
+    client: {
+      mocha: {
+        opts: 'mocha.opts'
+      }
+    },
+
     // list of files / patterns to load in the browser
     files: [
-      'test/*.js'
+      'src/**/*.ts'
     ],
 
     // list of files / patterns to exclude
     exclude: [
-      'node_modules'
+      'node_modules',
+      '**/*.d.ts'
     ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/*.js': ['webpack']
+      'src/**/*.ts': ['webpack'],
+      'src/*[!(test|ctx)].ts': ['coverage']
     },
 
     webpack: {
       node: { fs: 'empty' },
-      mode: 'production'
+      mode: 'development',
+      output: {
+        path: './test',
+        filename: '[chunkhash:8].js',
+      },
+      resolve: {
+        extensions: ['.ts', '.js', '.json']
+      },
+      module: {
+        rules: [
+          {
+            test: /\.ts$/,
+            exclude: /node_modules/,
+            use: [
+              {
+                loader: 'ts-loader',
+                options: {
+                  transpileOnly: true,
+                  compilerOptions: {
+                      target: "ES2015",
+                      module: "commonjs",
+                      lib: ["es5", "es2015", "es2016", "dom"]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['coverage'],
+
+
+    coverageReporter: {
+      type : 'text',
+      dir : 'coverage/',
+      file: 'text.txt'
+    },
+
+    mime: {
+      'text/x-typescript': ['ts']
+    },
 
     // web server port
-    port: 9876,
+    port: 9880,
 
     // enable / disable colors in the output (reporters and logs)
     colors: true,
