@@ -200,7 +200,7 @@ This property defines the level of messages that the Roar will log. Valid levels
 
 ### Methods
 #### init(config)
-If without config when new construction the Roar, you still can call this method with some configurations to construction.
+If without config when new the construction of Roar, you still can call this method with some configurations to construction.
 
 #### play()
 Begin playback of sound.
