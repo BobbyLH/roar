@@ -74,9 +74,8 @@ module.exports = function (config) {
 
 
     coverageReporter: {
-      type : 'text',
-      dir : 'coverage/',
-      file: 'text.txt'
+      type : 'lcovonly',
+      dir : 'coverage/'
     },
 
     mime: {
