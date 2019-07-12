@@ -1,8 +1,8 @@
 # Description
 [![NPM downloads](http://img.shields.io/npm/dm/roarjs.svg?style=flat-square)](https://www.npmjs.com/package/roarjs)
 [![npm version](https://badge.fury.io/js/roarjs.svg)](https://badge.fury.io/js/roarjs)
-[![Build Status](https://travis-ci.com/BobbyLH/roarjs.svg?branch=master)](https://travis-ci.com/BobbyLH/roarjs)
-[![codecov](https://codecov.io/gh/BobbyLH/roarjs/branch/master/graph/badge.svg)](https://codecov.io/gh/BobbyLH/roarjs)
+[![Build Status](https://travis-ci.com/BobbyLH/roar.svg?branch=master)](https://travis-ci.com/BobbyLH/roar)
+[![codecov](https://codecov.io/gh/BobbyLH/roar/branch/master/graph/badge.svg)](https://codecov.io/gh/BobbyLH/roar)
 [![install size](https://packagephobia.now.sh/badge?p=roarjs)](https://packagephobia.now.sh/result?p=roarjs)
 [![license](http://img.shields.io/npm/l/roarjs.svg)](https://github.com/BobbyLH/roar/blob/master/LICENSE)
 
