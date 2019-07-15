@@ -9,12 +9,12 @@ if (match) {
   version = `version": "${match[1]}.${match[2]}.${match[3]}-beta.${+match[5] + 1}",`
 } else {
   const match = pkg.match(normalRegExp)
-  if (match[2] >= 99 && match[3] >= 99) {
+  if (match[2] >= 9999 && match[3] >= 9999) {
     match[1] = parseInt(match[1]) + 1
     match[2] = 0
     match[3] = 0
   } else {
-    if (match[3] >= 99) {
+    if (match[3] >= 9999) {
       match[2] = parseInt(match[2]) + 1
       match[3] = 0
     } else {
